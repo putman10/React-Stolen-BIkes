@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 
 function BikeSearch({ dispatch }){
   let input;
-  console.log(input);
   return (
     <div>
       <form onSubmit={e => {
