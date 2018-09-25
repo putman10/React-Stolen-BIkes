@@ -2,17 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-const BikeListDisplay = ({ dispatch, bike }) => {
-  const { title } = bike;
+const BikeListDisplay = ({ dispatch, bikes }) => {
+  const {title} = bikes;
+console.log(bikes[0].title);
+console.log(array);
   return (
     <div>
-      <h1>{title}</h1>
+      <p>test</p>
     </div>
   );
 };
 
 BikeListDisplay.propTypes = {
-  bike: PropTypes.object,
+  bikes: PropTypes.array,
   title: PropTypes.string,
   dispatch: PropTypes.func
 };
@@ -22,15 +24,15 @@ const mapStateToProps = state => {
   const bike = state.search[1];
   if (!state.search[1].isFetching) {
     info = {
-      title: bike.stolenBikes[1].title
+      bikes: bike.stolenBikes
     };
   } else {
     info = {
-      title: ''
+      bikes: ''
     };
   }
   return {
-    bike: info
+    bikes: info
   };
 };
 
