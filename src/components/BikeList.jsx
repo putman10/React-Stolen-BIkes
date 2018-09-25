@@ -5,12 +5,13 @@ import { connect } from 'react-redux';
 const BikeListDisplay = (props) => {
   console.log(props.bikes);
   console.log(props.bikes[1]);
+
   return (
     <div>
       {props.bikes.map((bike, index) => (
         <div key={index}>
           <h1>{bike.title}</h1>
-          <img src={bike.thumb} alt={bike.title} />
+            <img src={bike.thumb != null ? bike.thumb : "https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350"} alt={bike.title} />
           <p>Date Stolen: {bike.date_stolen}</p>
           <p>Serial #: {bike.serial}</p>
           <hr />
