@@ -11,7 +11,7 @@ function Header(){
     maxWidth: '1200px',
     margin: '3rem auto',
     textAlign: 'center',
-    background: 'white',
+    background: '#ffffffb0',
     padding: '10px',
     border: '6px solid black',
     fontSize: '25px'
@@ -34,7 +34,7 @@ function Header(){
       </div>
       <div style={containerStyle2}>
       <p><b>This is a website to check for all reported stolen bikes based on a zipcode.</b></p>
-        <p style={lowerFont}>Search by zipcode:</p>
+        <p style={lowerFont}>Enter a valid zipcode:</p>
         <BikeSearch />
       </div>
     </div>

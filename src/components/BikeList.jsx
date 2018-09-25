@@ -24,6 +24,7 @@ const BikeListDisplay = (props) => {
 
   return (
     <div style={containerStyle}>
+    <h2>{props.city ? 'Bikes Stolen Near: ' + props.city : ''}</h2>
       {props.loader}
       {props.bikes.map((bike, index) => (
         <div style={columnStyle} key={index}>
@@ -40,23 +41,27 @@ const BikeListDisplay = (props) => {
 
 BikeListDisplay.propTypes = {
   bikes: PropTypes.array,
-  loader: PropTypes.object
+  loader: PropTypes.object,
+  city: PropTypes.string
 };
 
 const mapStateToProps = state => {
   let bikes;
   let loader;
+  let city = state.search[1].city;
+  console.log(state)
 
   if (!state.search[1].isFetching) {
     bikes = state.search[1].stolenBikes;
     loader;
   } else {
     bikes = [];
-    loader = <Loader type="Puff" color="red" height="100" width="100" />;
+    loader = <Loader type="Triangle" color="#257135" height="100" width="100" />;
   }
   return {
     bikes,
-    loader
+    loader,
+    city
   };
 
 };

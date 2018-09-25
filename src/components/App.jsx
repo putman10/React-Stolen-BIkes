@@ -11,10 +11,11 @@ function App({searchResults}){
       <div>
         <Header />
         <BikeListDisplay />
-        <style jsx global>
+        <style jsx>
         {`
           body {
-            background-image: url(${bImage})
+            background-image: url(${bImage});
+            font-family: 'Poppins', sans-serif;
           }
         `}
       </style>
@@ -24,10 +25,11 @@ function App({searchResults}){
     return (
       <div>
         <Header />
-        <style jsx global>
+        <style jsx>
         {`
           body {
-            background-image: url(${bImage})
+            background-image: url(${bImage});
+            font-family: 'Poppins', sans-serif;
           }
         `}
       </style>

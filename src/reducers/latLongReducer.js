@@ -23,6 +23,7 @@ const latLongReducer = (state = initialState.search, action) => {
   case types.RECEIVE_STOLENBIKES:
     newSearchResultByZip = {
       isFetching: false,
+      city: action.city,
       zip: action.zip,
       searchId: action.searchId,
       lat: action.lat,

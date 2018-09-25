@@ -26,11 +26,11 @@ function BikeSearch({ dispatch }){
         dispatch(fetchBikeId(input.value));
         input.value = '';
       }}>
-        <input style={inputStyle} placeholder="Search Zipcode..." ref={node => {
+        <input style={inputStyle} placeholder="97138..." ref={node => {
           input = node;
         }}></input>
         <button className="buttonStyle">Search</button>
-        <style jsx >
+        <style jsx>
         {`
           .buttonStyle {
             background-color: #257135;
