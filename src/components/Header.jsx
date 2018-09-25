@@ -1,5 +1,6 @@
 import React from 'react';
 import BikeSearch from './BikeSearch';
+import bikeGif from '../assets/bike.gif';
 
 function Header(){
   let containerStyle1 = {
@@ -9,7 +10,7 @@ function Header(){
   }
   let containerStyle2 = {
     maxWidth: '1200px',
-    margin: '3rem auto',
+    margin: '2rem auto 3rem',
     textAlign: 'center',
     background: '#ffffffb0',
     padding: '10px',
@@ -25,6 +26,13 @@ function Header(){
   let lowerFont = {
     fontSize: '20px'
   }
+  let bikeStyle = {
+    maxWidth: '100%'
+  }
+  let bikeDiv = {
+    width: '300px',
+    margin: '0 auto'
+  }
   return (
     <div>
       <div style={headerStyle}>
@@ -32,8 +40,11 @@ function Header(){
           <h1>Where's My Bike?</h1>
         </div>
       </div>
+      <div style={bikeDiv}>
+        <img style={bikeStyle} src={bikeGif}/>
+      </div>
       <div style={containerStyle2}>
-      <p><b>This is a website to check for all reported stolen bikes based on a zipcode.</b></p>
+      <p><b>This is a website that returns all reported stolen bikes in a 10 mile radius of inputed zipcode.</b></p>
         <p style={lowerFont}>Enter a valid zipcode:</p>
         <BikeSearch />
       </div>
