@@ -21,7 +21,8 @@ function Header(){
     backgroundColor: 'black',
     padding: '10px 0',
     color: 'white',
-    fontSize: '35px'
+    fontSize: '35px',
+    textTransform: 'capitalize'
   }
   let lowerFont = {
     fontSize: '20px'
