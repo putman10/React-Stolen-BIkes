@@ -8,7 +8,13 @@ const BikeListDisplay = (props) => {
   return (
     <div>
       {props.bikes.map((bike, index) => (
-        <p>{bike.title}</p>
+        <div key={index}>
+          <h1>{bike.title}</h1>
+          <img src={bike.thumb} alt={bike.title} />
+          <p>Date Stolen: {bike.date_stolen}</p>
+          <p>Serial #: {bike.serial}</p>
+          <hr />
+        </div>
       ))}
     </div>
   );
