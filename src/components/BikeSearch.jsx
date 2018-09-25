@@ -5,7 +5,15 @@ import PropTypes from 'prop-types';
 
 function BikeSearch({ dispatch }){
   let searchStyle = {
-    marginBottom: '3rem'
+    marginBottom: '1rem'
+  }
+  let inputStyle = {
+    width: "98%",
+    padding: "10px 7px",
+    fontSize: "15px",
+    borderRadius: "5px",
+    border: "1px solid black",
+    marginLeft: "-5px"
   }
   let input;
   return (
@@ -18,10 +26,29 @@ function BikeSearch({ dispatch }){
         dispatch(fetchBikeId(input.value));
         input.value = '';
       }}>
-        <input placeholder="Search Zipcode..." ref={node => {
+        <input style={inputStyle} placeholder="Search Zipcode..." ref={node => {
           input = node;
         }}></input>
-        <button>Search</button>
+        <button className="buttonStyle">Search</button>
+        <style jsx >
+        {`
+          .buttonStyle {
+            background-color: #257135;
+            color: white;
+            width: 200px;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid black;
+            margin-top: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+          }
+          .buttonStyle:hover {
+            background-color: black;
+          }
+        `}
+      </style>
       </form>
     </div>
   );

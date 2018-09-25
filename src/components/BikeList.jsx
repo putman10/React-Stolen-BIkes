@@ -8,7 +8,10 @@ const BikeListDisplay = (props) => {
   let containerStyle = {
     maxWidth: '1200px',
     margin: '0 auto',
-    textAlign: 'center'
+    textAlign: 'center',
+    background: '#ffffffb0',
+    border: '6px solid black',
+    padding: '2rem 0'
   }
   let columnStyle = {
     width: '20%',

@@ -21,7 +21,7 @@ export function fetchBikeId(zip) {
 }
 
 export function fetchStolenBikes(lat, lng, zip, localSearchId, dispatch) {
-  return fetch('https://bikeindex.org:443/api/v2/bikes_search/stolen?page=1&proximity=' + lat + ',' + lng + '&proximity_square=10').then(
+  return fetch('https://bikeindex.org:443/api/v2/bikes_search/stolen?page=1&per_page=24&proximity=' + lat + ',' + lng + '&proximity_square=10').then(
     response => response.json(),
     error => console.log('An error occurred.', error)
   ).then(function(json) {

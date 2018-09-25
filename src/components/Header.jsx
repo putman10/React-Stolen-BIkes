@@ -2,27 +2,39 @@ import React from 'react';
 import BikeSearch from './BikeSearch';
 
 function Header(){
-  let containerStyle = {
+  let containerStyle1 = {
     maxWidth: '1200px',
     margin: '0 auto',
     textAlign: 'center'
   }
+  let containerStyle2 = {
+    maxWidth: '1200px',
+    margin: '3rem auto',
+    textAlign: 'center',
+    background: 'white',
+    padding: '10px',
+    border: '6px solid black',
+    fontSize: '25px'
+  }
   let headerStyle = {
-    backgroundColor: 'red',
+    backgroundColor: 'black',
     padding: '10px 0',
     color: 'white',
-    marginBottom: '2rem'
+    fontSize: '35px'
+  }
+  let lowerFont = {
+    fontSize: '20px'
   }
   return (
     <div>
       <div style={headerStyle}>
-        <div style={containerStyle}>
-          <h1>Stolen Bikes</h1>
+        <div style={containerStyle1}>
+          <h1>Where's My Bike?</h1>
         </div>
       </div>
-      <div style={containerStyle}>
-      <p>This is a website to check for all reported stolen bikes based on a zipcode.</p>
-        <em>Search by zipcode:</em>
+      <div style={containerStyle2}>
+      <p><b>This is a website to check for all reported stolen bikes based on a zipcode.</b></p>
+        <p style={lowerFont}>Search by zipcode:</p>
         <BikeSearch />
       </div>
     </div>

@@ -3,6 +3,7 @@ import Header from './Header';
 import BikeListDisplay from './BikeList';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import bImage from '../assets/hypnotize.png';
 
 function App({searchResults}){
   if(searchResults){
@@ -10,12 +11,26 @@ function App({searchResults}){
       <div>
         <Header />
         <BikeListDisplay />
+        <style jsx global>
+        {`
+          body {
+            background-image: url(${bImage})
+          }
+        `}
+      </style>
       </div>
     );
   } else {
     return (
       <div>
         <Header />
+        <style jsx global>
+        {`
+          body {
+            background-image: url(${bImage})
+          }
+        `}
+      </style>
       </div>
     );
   }
