@@ -2,27 +2,27 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-const BikeList = () => {
-
+const BikeListDisplay = ({ dispatch, bike }) => {
+  const { title } = bike;
   return (
     <div>
-
+      <h1>{title}</h1>
     </div>
   );
 };
 
-BikeList.propTypes = {
-  bikes: PropTypes.object,
-  title: PropTypes.string
+BikeListDisplay.propTypes = {
+  bike: PropTypes.object,
+  title: PropTypes.string,
+  dispatch: PropTypes.func
 };
 
 const mapStateToProps = state => {
   let info;
-  console.log(state);
-  const bikes = state.search[1];
-  if (!state.search[1]) {
+  const bike = state.search[1];
+  if (!state.search[1].isFetching) {
     info = {
-      title: ''
+      title: bike.stolenBikes[1].title
     };
   } else {
     info = {
@@ -30,9 +30,8 @@ const mapStateToProps = state => {
     };
   }
   return {
-    bikes: info
+    bike: info
   };
-
 };
 
-export default connect(mapStateToProps)(BikeList);
+export default connect(mapStateToProps)(BikeListDisplay);
