@@ -4,9 +4,12 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 function BikeSearch({ dispatch }){
+  let searchStyle = {
+    marginBottom: '3rem'
+  }
   let input;
   return (
-    <div>
+    <div style={searchStyle}>
       <form onSubmit={e => {
         e.preventDefault();
         if (!input.value) {

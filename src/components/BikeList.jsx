@@ -5,17 +5,27 @@ import placeholder from '../assets/placeholder.jpg';
 import Loader from 'react-loader-spinner';
 
 const BikeListDisplay = (props) => {
-  console.log(props.bikes);
-  console.log(props.bikes[1]);
-  console.log(props.loader);
+  let containerStyle = {
+    maxWidth: '1200px',
+    margin: '0 auto',
+    textAlign: 'center'
+  }
+  let columnStyle = {
+    width: '20%',
+    display: 'inline-block',
+    marginRight: '2%'
+  }
+  let imageStyle = {
+    maxWidth: '100%'
+  }
 
   return (
-    <div>
+    <div style={containerStyle}>
       {props.loader}
       {props.bikes.map((bike, index) => (
-        <div key={index}>
-          <h1>{bike.title}</h1>
-            <img src={bike.thumb != null ? bike.thumb : placeholder} alt={bike.title} />
+        <div style={columnStyle} key={index}>
+          <h3>{bike.title}</h3>
+            <img style={imageStyle} src={bike.thumb != null ? bike.thumb : placeholder} alt={bike.title} />
           <p>Date Stolen: {bike.date_stolen}</p>
           <p>Serial #: {bike.serial}</p>
           <hr />
@@ -39,7 +49,7 @@ const mapStateToProps = state => {
     loader;
   } else {
     bikes = [];
-    loader = <Loader type="Ball-Triangle" color="#00BFFF" height="100" width="100" />;
+    loader = <Loader type="Puff" color="red" height="100" width="100" />;
   }
   return {
     bikes,
