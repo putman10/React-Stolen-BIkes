@@ -1,6 +1,8 @@
 const webpack = require('webpack');
 const { resolve } = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const myEnv = require('dotenv').config();
+
 
 module.exports = {
 
@@ -66,6 +68,9 @@ module.exports = {
       appMountId: 'react-app-root',
       title: 'React Stolen Bikes',
       filename: resolve(__dirname, "build", "index.html"),
+    }),
+    new webpack.DefinePlugin({
+    API_KEY: JSON.stringify(myEnv.parsed.API_KEY),
     }),
   ]
 };

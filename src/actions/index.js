@@ -5,7 +5,7 @@ export function fetchBikeId(zip) {
   return function(dispatch){
     const localSearchId = v4();
     dispatch(requestLatLong(zip, localSearchId));
-    return fetch('https://maps.googleapis.com/maps/api/geocode/json?address=' + zip + '&key=AIzaSyBhrHMx-N1HrKqAiPOKx8ruYESRqI7wfBY').then(
+    return fetch('https://maps.googleapis.com/maps/api/geocode/json?address=' + zip + '&key=' + API_KEY).then(
       response => response.json(),
       error => console.log('An error occurred.', error)
     ).then(function(json) {
