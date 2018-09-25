@@ -2,38 +2,34 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-const BikeListDisplay = ({ dispatch, bikes }) => {
-  const {title} = bikes;
-console.log(bikes[0].title);
-console.log(array);
+const BikeListDisplay = (props) => {
+  console.log(props.bikes);
+  console.log(props.bikes[1]);
   return (
     <div>
-      <p>test</p>
+      {props.bikes.map((bike, index) => (
+        <p>{bike.title}</p>
+      ))}
     </div>
   );
 };
 
 BikeListDisplay.propTypes = {
-  bikes: PropTypes.array,
-  title: PropTypes.string,
-  dispatch: PropTypes.func
+  bikes: PropTypes.array
 };
 
 const mapStateToProps = state => {
-  let info;
-  const bike = state.search[1];
+  let bikes;
+
   if (!state.search[1].isFetching) {
-    info = {
-      bikes: bike.stolenBikes
-    };
+    bikes = state.search[1].stolenBikes;
   } else {
-    info = {
-      bikes: ''
-    };
+    bikes = [];
   }
   return {
-    bikes: info
+    bikes
   };
+
 };
 
 export default connect(mapStateToProps)(BikeListDisplay);

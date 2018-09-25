@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from './Header';
-import BikeList from './BikeList';
+import BikeListDisplay from './BikeList';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
@@ -9,7 +9,7 @@ function App({searchResults}){
     return (
       <div>
         <Header />
-          <BikeList />
+        <BikeListDisplay />
       </div>
     );
   } else {
