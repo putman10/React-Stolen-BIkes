@@ -1,17 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import placeholder from '../assets/placeholder.jpg';
+import Loader from 'react-loader-spinner';
 
 const BikeListDisplay = (props) => {
   console.log(props.bikes);
   console.log(props.bikes[1]);
+  console.log(props.loader);
 
   return (
     <div>
+      {props.loader}
       {props.bikes.map((bike, index) => (
         <div key={index}>
           <h1>{bike.title}</h1>
-            <img src={bike.thumb != null ? bike.thumb : "https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350"} alt={bike.title} />
+            <img src={bike.thumb != null ? bike.thumb : placeholder} alt={bike.title} />
           <p>Date Stolen: {bike.date_stolen}</p>
           <p>Serial #: {bike.serial}</p>
           <hr />
@@ -22,19 +26,24 @@ const BikeListDisplay = (props) => {
 };
 
 BikeListDisplay.propTypes = {
-  bikes: PropTypes.array
+  bikes: PropTypes.array,
+  loader: PropTypes.object
 };
 
 const mapStateToProps = state => {
   let bikes;
+  let loader;
 
   if (!state.search[1].isFetching) {
     bikes = state.search[1].stolenBikes;
+    loader;
   } else {
     bikes = [];
+    loader = <Loader type="Ball-Triangle" color="#00BFFF" height="100" width="100" />;
   }
   return {
-    bikes
+    bikes,
+    loader
   };
 
 };
