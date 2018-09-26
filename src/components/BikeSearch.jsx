@@ -17,11 +17,6 @@ function BikeSearch(props){
   };
   let input;
 
-  function handleOnClick(){
-    props.onClick();
-  }
-
-
   return (
     <div style={searchStyle}>
       <form onSubmit={e => {
@@ -35,7 +30,7 @@ function BikeSearch(props){
         <input style={inputStyle} placeholder="97138..." ref={node => {
           input = node;
         }}></input>
-        <button className="buttonStyle" onClick={() =>handleOnClick()}>Search</button>
+        <button className="buttonStyle">Search</button>
         <style jsx>
           {`
           .buttonStyle {
@@ -61,8 +56,7 @@ function BikeSearch(props){
 }
 
 BikeSearch.propTypes = {
-  dispatch: PropTypes.func,
-  onClick: PropTypes.func
+  dispatch: PropTypes.func
 };
 
 export default connect()(BikeSearch);
