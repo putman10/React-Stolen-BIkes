@@ -12,13 +12,13 @@ function App({searchResults}){
         <Header />
         <BikeListDisplay />
         <style jsx>
-        {`
+          {`
           body {
             background-image: url(${bImage});
             font-family: 'Poppins', sans-serif;
           }
         `}
-      </style>
+        </style>
       </div>
     );
   } else {
@@ -26,13 +26,13 @@ function App({searchResults}){
       <div>
         <Header />
         <style jsx>
-        {`
+          {`
           body {
             background-image: url(${bImage});
             font-family: 'Poppins', sans-serif;
           }
         `}
-      </style>
+        </style>
       </div>
     );
   }

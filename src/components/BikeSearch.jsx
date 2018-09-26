@@ -3,19 +3,25 @@ import { fetchBikeId } from './../actions';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-function BikeSearch({ dispatch }){
+function BikeSearch(props){
   let searchStyle = {
     marginBottom: '1rem'
-  }
+  };
   let inputStyle = {
-    width: "98%",
-    padding: "10px 7px",
-    fontSize: "15px",
-    borderRadius: "5px",
-    border: "1px solid black",
-    marginLeft: "-5px"
-  }
+    width: '98%',
+    padding: '10px 7px',
+    fontSize: '15px',
+    borderRadius: '5px',
+    border: '1px solid black',
+    marginLeft: '-5px'
+  };
   let input;
+
+  function handleOnClick(){
+    props.onClick();
+  }
+
+
   return (
     <div style={searchStyle}>
       <form onSubmit={e => {
@@ -23,39 +29,40 @@ function BikeSearch({ dispatch }){
         if (!input.value) {
           return;
         }
-        dispatch(fetchBikeId(input.value));
+        props.dispatch(fetchBikeId(input.value));
         input.value = '';
       }}>
         <input style={inputStyle} placeholder="97138..." ref={node => {
           input = node;
         }}></input>
-        <button className="buttonStyle">Search</button>
+        <button className="buttonStyle" onClick={() =>handleOnClick()}>Search</button>
         <style jsx>
-        {`
+          {`
           .buttonStyle {
-            background-color: #257135;
+            background-color: #00b0ff;
             color: white;
             width: 200px;
             padding: 10px;
             font-size: 16px;
             border-radius: 5px;
-            border: 1px solid black;
+            border: 1px solid #0091ea;
             margin-top: 12px;
             font-weight: 700;
             text-transform: uppercase;
           }
           .buttonStyle:hover {
-            background-color: black;
+            background-color: #0091ea;
           }
         `}
-      </style>
+        </style>
       </form>
     </div>
   );
 }
 
 BikeSearch.propTypes = {
-  dispatch: PropTypes.func
+  dispatch: PropTypes.func,
+  onClick: PropTypes.func
 };
 
 export default connect()(BikeSearch);
