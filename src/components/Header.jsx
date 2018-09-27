@@ -1,6 +1,5 @@
 import React from 'react';
 import BikeSearch from './BikeSearch';
-import SavedSearches from './SavedSearches';
 import bikeGif from '../assets/bike.gif';
 import './styles/Header.css';
 import { CSSTransitionGroup } from 'react-transition-group';
@@ -30,7 +29,6 @@ function Header(){
         <p className="lowerFont">Enter a valid zipcode:</p>
         <BikeSearch />
       </div>
-      <SavedSearches />
       </CSSTransitionGroup>
     </div>
   );

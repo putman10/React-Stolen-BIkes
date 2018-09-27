@@ -36,6 +36,22 @@ const latLongReducer = (state = initialState.search, action) => {
     });
     return newSearchResultByZipStateSlice;
 
+    case types.UPDATE_HISTORYSEARCH:
+      newSearchResultByZip = {
+        isFetching: false,
+        city: action.city,
+        zip: action.zip,
+        searchId: action.searchId,
+        lat: action.lat,
+        lng: action.lng,
+        stolenBikes: action.stolenBikes,
+        receivedAt: action.receivedAt
+      };
+      newSearchResultByZipStateSlice = Object.assign({}, state, {
+        1: newSearchResultByZip
+      });
+      return newSearchResultByZipStateSlice;
+
   }
 };
 

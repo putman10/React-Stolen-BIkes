@@ -1,28 +1,33 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import './styles/SavedSearch.css';
+import { historySearch } from './../actions';
 
 function SavedSearches(props){
-    console.log(Object.keys(props.savedSearches).length)
-
+console.log(props.dispatch)
   if (Object.keys(props.savedSearches).length > 0) {
     return (
       <div>
-        <h1>Saved Searches:</h1>
-        <p>TEst 1</p>
+      <p className="savedTitle">Search History:</p>
+      {Object.keys(props.savedSearches).map(function(searchId) { let search = props.savedSearches[searchId];
+        return (
+          <button onClick={() =>props.dispatch(historySearch(search))} className="searchButtons" key={searchId}>{search.zip}</button>
+        )
+      })}
       </div>
     );
   } else{
     return (
       <div>
-        <p>test</p>
       </div>
     );
   }
 }
 
 SavedSearches.propTypes = {
-  savedSearches: PropTypes.object
+  savedSearches: PropTypes.object,
+  dispatch: PropTypes.func
 };
 
 const mapStateToProps = state => {

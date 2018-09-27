@@ -33,6 +33,12 @@ export function fetchStolenBikes(lat, lng, zip, localSearchId, city, dispatch) {
   });
 }
 
+export function historySearch(search) {
+  return function(dispatch){
+    dispatch(receiveStolenBikes(search.localSearchId, search.zip, search.lat, search.lng, search.city, search.stolenBikes))
+  }
+}
+
 export const requestLatLong = (zip, localSearchId) => ({
   type: types.REQUEST_LATLONG,
   zip,

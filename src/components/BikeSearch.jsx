@@ -3,6 +3,7 @@ import { fetchBikeId } from './../actions';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import './styles/BikeSearch.css';
+import SavedSearches from './SavedSearches';
 
 function BikeSearch(props){
   let searchStyle = {
@@ -33,6 +34,7 @@ function BikeSearch(props){
         }}></input>
         <button className="buttonStyle">Search</button>
       </form>
+      <SavedSearches />
     </div>
   );
 }
