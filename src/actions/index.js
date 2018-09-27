@@ -29,6 +29,7 @@ export function fetchStolenBikes(lat, lng, zip, localSearchId, city, dispatch) {
   ).then(function(json) {
     const stolenBikes = json.bikes;
     dispatch(receiveStolenBikes(localSearchId, zip, lat, lng, city, stolenBikes));
+    dispatch(logSavedSearch(localSearchId, zip, lat, lng, city, stolenBikes));
   });
 }
 
@@ -40,6 +41,17 @@ export const requestLatLong = (zip, localSearchId) => ({
 
 export const receiveStolenBikes = (localSearchId, zip, lat, lng, city, stolenBikes) => ({
   type: types.RECEIVE_STOLENBIKES,
+  searchId: localSearchId,
+  zip,
+  lat,
+  lng,
+  city,
+  stolenBikes,
+  receivedAt: Date.now()
+});
+
+export const logSavedSearch = (localSearchId, zip, lat, lng, city, stolenBikes) => ({
+  type: types.LOG_STOLENBIKESSEARCH,
   searchId: localSearchId,
   zip,
   lat,

@@ -52,7 +52,6 @@ const mapStateToProps = state => {
   let bikes;
   let loader;
   let city = state.search[1].city;
-  console.log(state);
 
   if (!state.search[1].isFetching) {
     bikes = state.search[1].stolenBikes;

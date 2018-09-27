@@ -3,7 +3,7 @@ import Header from './Header';
 import BikeListDisplay from './BikeList';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import bImage from '../assets/hypnotize.png';
+import './styles/App.css';
 
 function App({searchResults}){
   if(searchResults){
@@ -11,28 +11,12 @@ function App({searchResults}){
       <div>
         <Header />
         <BikeListDisplay />
-        <style jsx>
-          {`
-          body {
-            background-image: url(${bImage});
-            font-family: 'Poppins', sans-serif;
-          }
-        `}
-        </style>
       </div>
     );
   } else {
     return (
       <div>
         <Header />
-        <style jsx>
-          {`
-          body {
-            background-image: url(${bImage});
-            font-family: 'Poppins', sans-serif;
-          }
-        `}
-        </style>
       </div>
     );
   }
